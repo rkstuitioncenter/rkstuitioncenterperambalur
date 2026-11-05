@@ -31,13 +31,16 @@
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
         .card h3 { color: var(--primary); margin-bottom: 1rem; }
-        .calculator-box { background: var(--white); max-width: 600px; margin: 0 auto; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .fee-table-box { background: var(--white); max-width: 700px; margin: 0 auto; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem; }
+        th, td { padding: 1.2rem; border-bottom: 1px solid #e5e7eb; }
+        th { background-color: var(--primary); color: var(--white); font-weight: bold; }
+        .fee-amount { color: #16a34a; font-weight: bold; font-size: 1.2rem; }
         .form-group { margin-bottom: 1.5rem; }
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         .form-group select, .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-        .calc-result { background: #f0fdf4; color: #16a34a; padding: 1rem; border-radius: 4px; text-align: center; font-size: 1.4rem; font-weight: bold; margin-top: 1.5rem; border: 1px solid #bbf7d0; }
         .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; background: var(--white); padding: 3rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; font-size: 1.6rem; }
+        .contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; }
         .submit-btn { background-color: #25d366; color: var(--white); padding: 0.9rem 1.5rem; border: none; border-radius: 4px; font-size: 1.1rem; cursor: pointer; width: 100%; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .success-message { display: none; background-color: #d1fae5; color: #065f46; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem; text-align: center; font-weight: bold; border: 1px solid #a7f3d0; }
         footer { background-color: var(--dark); color: var(--white); text-align: center; padding: 2rem; margin-top: 4rem; }
@@ -46,10 +49,10 @@
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">RKS ஆன்லைன் டியூஷன்</div>
+            <div class="logo">RKS TUITION CENTER </div>
             <nav>
                 <a href="#services">சிறப்புகள்</a>
-                <a href="#fee-calculator">கட்டண விவரம்</a>
+                <a href="#fee-section">கட்டண விவரம்</a>
                 <a href="#register" class="cta-btn">ஆன்லைன் பதிவு</a>
             </nav>
         </div>
@@ -57,7 +60,7 @@
     <section class="hero">
         <div class="hero-content">
             <span class="badge">💻 ஆன்லைன் வகுப்புகள் மட்டும் (Online Class Only)</span>
-            <h1>தமிழ் வழி மாணவர்களுக்கான சிறந்த கல்வி மையம்!</h1>
+            <h1>தமிழ் வழி மாணவர்களுக்கான சிறந்த  கல்வி மையம்!</h1>
             <p>வீட்டில் இருந்தபடியே நேரடி ஆன்லைன் வகுப்புகள் மூலம் எளிதாகப் படிக்கலாம். 1-5 வகுப்பு வரை அனைத்து பாடங்களும், 6-10 வகுப்பு வரை கணிதப் பாடம் மட்டும் கற்றுத்தரப்படும்.</p>
             <a href="tel:9943320638" class="phone-link">📞 நேரடியாக அழைக்க: 9943320638</a>
         </div>
@@ -81,21 +84,36 @@
         </div>
     </section>
 
-    <section id="fee-calculator" style="background-color: #f3f4f6; max-width: 100%;">
+    <section id="fee-section" style="background-color: #f3f4f6; max-width: 100%;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <h2 class="section-title">மாதாந்திர ஆன்லைன் கட்டண விவரம்</h2>
-            <div class="calculator-box">
-                <div class="form-group">
-                    <label for="grade-select">வகுப்பைத் தேர்ந்தெடுக்கவும்:</label>
-                    <select id="grade-select" onchange="calculateFee()">
-                        <option value="130">1 முதல் 5-ஆம் வகுப்பு (அனைத்து பாடங்களும்) - ₹130</option>
-                        <option value="150">6 முதல் 8-ஆம் வகுப்பு (கணிதம் மட்டும்) - ₹150</option>
-                        <option value="220" selected>9 மற்றும் 10-ஆம் வகுப்பு (கணிதம் மட்டும்) - ₹220</option>
-                    </select>
-                </div>
-                <div class="calc-result">
-                    ஆன்லைன் டியூஷன் கட்டணம்: ₹<span id="total-price">220</span> / மாதம்
-                </div>
+            <div class="fee-table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>வகுப்புகள்</th>
+                            <th>பாடம்</th>
+                            <th>மாதாந்திர கட்டணம்</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>1 முதல் 5-ஆம் வகுப்பு</b></td>
+                            <td>அனைத்து பாடங்களும்</td>
+                            <td class="fee-amount">₹130 / மாதம்</td>
+                        </tr>
+                        <tr>
+                            <td><b>6 முதல் 8-ஆம் வகுப்பு</b></td>
+                            <td>கணித பாடம் மட்டும்</td>
+                            <td class="fee-amount">₹150 / மாதம்</td>
+                        </tr>
+                        <tr>
+                            <td><b>9 மற்றும் 10-ஆம் வகுப்பு</b></td>
+                            <td>கணித பாடம் மட்டும்</td>
+                            <td class="fee-amount">₹220 / மாதம்</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -105,13 +123,13 @@
             <div class="contact-info">
                 <h3 style="margin-bottom: 1rem; color: var(--primary);">தொடர்பு விவரங்கள்</h3>
                 <p style="margin-bottom: 1.5rem;">ஆன்லைன் வகுப்பில் சேர மற்றும் உங்கள் சந்தேகங்களைத் தீர்த்துக்கொள்ள கீழே உள்ள எண்ணைக் கிளிக் செய்து எங்களை நேரடியாக அழைக்கலாம்.</p>
-                <p style="margin-bottom: 1.5rem;">
+                <p style="font-size: 1.3rem; margin-bottom: 1.5rem;">
                     <strong>📞 போன் செய்ய கிளிக் செய்க:</strong> <br>
-                    <a href="tel:9943320638">9943320638</a>
+                    <a href="tel:9943320638" style="color: var(--secondary); font-size: 1.6rem; text-decoration: none;">9943320638</a>
                 </p>
-                <p><strong>💻 வகுப்பு முறை:</strong> ஆன்லைன் வகுப்புகள் மட்டும்</p>
+                <p><strong>💻 வகுப்பு முறை:</strong> ஆன்லைன் வகுப்புகள் மட்டும் (Online Classes Only)</p>
                 <p><strong>🌐 பயிற்று மொழி:</strong> தமிழ் மீடியம் மட்டும்</p>
-                <p><strong>📍 முதன்மை மையம்:</strong> பெரம்பலூர், தமிழ்நாடு</p>
+                <p><strong>📍 முதன்மை மையம்:</strong> பெரம்பலூர் (Perambalur), தமிழ்நாடு</p>
             </div>
             <div>
                 <div class="success-message" id="successAlert"></div>
@@ -124,9 +142,16 @@
                         <label for="studentGrade">வகுப்பு *</label>
                         <select id="studentGrade" required>
                             <option value="">-- தேர்ந்தெடுக்கவும் --</option>
-                            <option value="1 முதல் 5-ஆம் வகுப்பு (அனைத்து பாடங்களும்)">1 முதல் 5-ஆம் வகுப்பு (அனைத்து பாடங்களும்)</option>
-                            <option value="6 முதல் 8-ஆம் வகுப்பு (கணிதம் மட்டும்)">6 முதல் 8-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
-                            <option value="9 மற்றும் 10-ஆம் வகுப்பு (கணிதம் மட்டும்)">9 மற்றும் 10-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
+                            <option value="1-ஆம் வகுப்பு (அனைத்து பாடங்களும்)">1-ஆம் வகுப்பு (அனைத்து பாடங்களும்)</option>
+                            <option value="2-ஆம் வகுப்பு (அனைத்து பாடங்களும்)">2-ஆம் வகுப்பு (அனைத்து பாடங்களும்)</option>
+                            <option value="3-ஆம் வகுப்பு (அனைத்து பாடங்களும்)">3-ஆம் வகுப்பு (அனைத்து பாடங்களும்)</option>
+                            <option value="4-ஆம் வகுப்பு (அனைத்து பாடங்களும்)">4-ஆம் வகுப்பு (அனைத்து பாடங்களும்)</option>
+                            <option value="5-ஆம் வகுப்பு (அனைத்து பாடங்களும்)">5-ஆம் வகுப்பு (அனைத்து பாடங்களும்)</option>
+                            <option value="6-ஆம் வகுப்பு (கணிதம் மட்டும்)">6-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
+                            <option value="7-ஆம் வகுப்பு (கணிதம் மட்டும்)">7-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
+                            <option value="8-ஆம் வகுப்பு (கணிதம் மட்டும்)">8-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
+                            <option value="9-ஆம் வகுப்பு (கணிதம் மட்டும்)">9-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
+                            <option value="10-ஆம் வகுப்பு (கணிதம் மட்டும்)">10-ஆம் வகுப்பு (கணிதம் மட்டும்)</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -142,24 +167,18 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 RKS ஆன்லைன் டியூஷன் சென்டர் - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        <p>&copy; 2026 RKS TUITION CENTER - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </footer>
 
     <script>
-        function calculateFee() {
-            const selectElement = document.getElementById('grade-select');
-            if(selectElement) {
-                const total = parseFloat(selectElement.value);
-                document.getElementById('total-price').innerText = total;
-            }
-        }
-
         function handleRegistration(event) {
             event.preventDefault();
+
             const student = document.getElementById('studentName').value.trim();
             const grade = document.getElementById('studentGrade').value;
             const phone = document.getElementById('parentPhone').value.trim();
             const successAlert = document.getElementById('successAlert');
+
             const myWhatsappNumber = "919943320638";
 
             const message = "RKS ஆன்லைன் டியூஷன் - புதிய சேர்க்கை பதிவு:\n\n" +
@@ -171,15 +190,15 @@
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = "https://whatsapp.com" + myWhatsappNumber + "&text=" + encodedMessage;
 
-            successAlert.innerText = "வெற்றி! உங்களுடைய வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
+            successAlert.innerText = "வெற்றி! " + student + " (" + grade + ") ஆன்லைன் வகுப்பு பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
             successAlert.style.display = "block";
 
             document.getElementById('enrollmentForm').reset();
-            calculateFee();
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
             setTimeout(function() {
                 window.open(whatsappUrl, '_blank');
-            }, 1200);
+            }, 1500);
         }
     </script>
 </body>
