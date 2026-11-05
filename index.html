@@ -3,64 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RKS TUITION CENTER </title>
+    <title>RKS ஆன்லைன் டியூஷன் சென்டர் | பெரம்பலூர்</title>
     <style>
         :root {
-            --primary: #1e3a8a;
-            --secondary: #3b82f6;
-            --accent: #22c55e;
-            --dark: #1f2937;
-            --light: #f0f4f8;
+            --primary: #800020; /* ராயல் மெரூன் */
+            --secondary: #d4af37; /* தங்க நிறம் */
+            --accent: #25d366; /* வாட்ஸ்அப் பச்சை */
+            --dark: #111827; /* அடர் கருப்பு */
+            --light: #fffbeb; /* மென்மையான தங்க வெளுப்பு */
             --white: #ffffff;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
-        header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary); }
-        nav a { text-decoration: none; color: var(--dark); margin-left: 1.5rem; font-weight: bold; }
-        nav a:hover { color: var(--secondary); }
-        .cta-btn { background-color: var(--accent); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: bold; text-decoration: none; display: inline-block; }
-        .hero { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 5rem 2rem; text-align: center; }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
-        .badge { background-color: #ef4444; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem; font-weight: bold; }
-        .phone-link { color: #ffffff !important; background-color: var(--dark); padding: 0.8rem 2rem; font-size: 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; }
-        section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 3rem; color: var(--primary); font-size: 2rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
-        .card h3 { color: var(--primary); margin-bottom: 1rem; }
-        .fee-table-box { background: var(--white); max-width: 700px; margin: 0 auto; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem; }
-        th, td { padding: 1.2rem; border-bottom: 1px solid #e5e7eb; }
-        th { background-color: var(--primary); color: var(--white); font-weight: bold; }
-        .fee-amount { color: #16a34a; font-weight: bold; font-size: 1.2rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-        .form-group select, .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; background: var(--white); padding: 3rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: bold; }
-        .submit-btn { background-color: #25d366; color: var(--white); padding: 0.9rem 1.5rem; border: none; border-radius: 4px; font-size: 1.1rem; cursor: pointer; width: 100%; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .success-message { display: none; background-color: #d1fae5; color: #065f46; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem; text-align: center; font-weight: bold; border: 1px solid #a7f3d0; }
-        footer { background-color: var(--dark); color: var(--white); text-align: center; padding: 2rem; margin-top: 4rem; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(128, 0, 32, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 1.8rem;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta-nav {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(128, 0, 32, 0.2);
+        }
+
+        .cta-nav:hover {
+            background-color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4a0012 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .badge {
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .phone-link {
+            color: var(--dark) !important;
+            background-color: var(--secondary);
+            padding: 1rem 2.5rem;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 6px 20px rgba(214, 175, 85, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--primary);
+            font-size: 2.4rem;
+            font-weight: 800;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(128, 0, 32, 0.04);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(128, 0, 32, 0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(128, 0, 32, 0.1);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 12rem; /* Buffer to prevent layout compression */
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .fee-table-box {
+            background: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(214, 175, 85, 0.3);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 1.4rem;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 1.1rem;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .fee-amount {
+            color: #16a34a;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 4rem;
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(128, 0, 32, 0.05);
+            border-left: 6px solid var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f9fafb;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+        }
+
+        .success-message {
+            display: none;
+            background-color: #ecfdf5;
+            color: #065f46;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+            border: 1px solid #a7f3d0;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            border-top: 4px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1.2rem; }
+            nav a { margin: 0 0.8rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .contact-container { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">RKS TUITION CENTER </div>
+            <div class="logo">🎓 RKS TUITION CENTER </div>
             <nav>
                 <a href="#services">சிறப்புகள்</a>
                 <a href="#fee-section">கட்டண விவரம்</a>
-                <a href="#register" class="cta-btn">ஆன்லைன் பதிவு</a>
+                <a href="#register" class="cta-nav">ஆன்லைன் பதிவு</a>
             </nav>
         </div>
     </header>
+
     <section class="hero">
         <div class="hero-content">
             <span class="badge">💻 ஆன்லைன் வகுப்புகள் மட்டும் (Online Class Only)</span>
-            <h1>தமிழ் வழி மாணவர்களுக்கான சிறந்த  கல்வி மையம்!</h1>
+            <h1>தமிழ் வழி மாணவர்களுக்கான சிறந்த ஆன்லைன் கல்வி மையம்!</h1>
             <p>வீட்டில் இருந்தபடியே நேரடி ஆன்லைன் வகுப்புகள் மூலம் எளிதாகப் படிக்கலாம். 1-5 வகுப்பு வரை அனைத்து பாடங்களும், 6-10 வகுப்பு வரை கணிதப் பாடம் மட்டும் கற்றுத்தரப்படும்.</p>
             <a href="tel:9943320638" class="phone-link">📞 நேரடியாக அழைக்க: 9943320638</a>
         </div>
@@ -98,17 +351,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><b>1 முதல் 5-ஆம் வகுப்பு</b></td>
+                            <td><strong>1 முதல் 5-ஆம் வகுப்பு</strong></td>
                             <td>அனைத்து பாடங்களும்</td>
                             <td class="fee-amount">₹130 / மாதம்</td>
                         </tr>
                         <tr>
-                            <td><b>6 முதல் 8-ஆம் வகுப்பு</b></td>
+                            <td><strong>6 முதல் 8-ஆம் வகுப்பு</strong></td>
                             <td>கணித பாடம் மட்டும்</td>
                             <td class="fee-amount">₹150 / மாதம்</td>
                         </tr>
                         <tr>
-                            <td><b>9 மற்றும் 10-ஆம் வகுப்பு</b></td>
+                            <td><strong>9 மற்றும் 10-ஆம் வகுப்பு</strong></td>
                             <td>கணித பாடம் மட்டும்</td>
                             <td class="fee-amount">₹220 / மாதம்</td>
                         </tr>
@@ -117,19 +370,19 @@
             </div>
         </div>
     </section>
-                 <section id="register">
+    <section id="register">
         <h2 class="section-title">உடனடி ஆன்லைன் சேர்க்கை பதிவு</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <h3 style="margin-bottom: 1rem; color: var(--primary);">தொடர்பு விவரங்கள்</h3>
-                <p style="margin-bottom: 1.5rem;">ஆன்லைன் வகுப்பில் சேர மற்றும் உங்கள் சந்தேகங்களைத் தீர்த்துக்கொள்ள கீழே உள்ள எண்ணைக் கிளிக் செய்து எங்களை நேரடியாக அழைக்கலாம்.</p>
-                <p style="font-size: 1.3rem; margin-bottom: 1.5rem;">
+                <h3>தொடர்பு விவரங்கள்</h3>
+                <p>ஆன்லைன் வகுப்பில் சேர மற்றும் உங்கள் சந்தேகங்களைத் தீர்த்துக்கொள்ள கீழே உள்ள எண்ணைக் கிளிக் செய்து எங்களை நேரடியாக அழைக்கலாம்.</p>
+                <p style="font-size: 1.3rem;">
                     <strong>📞 போன் செய்ய கிளிக் செய்க:</strong> <br>
-                    <a href="tel:9943320638" style="color: var(--secondary); font-size: 1.6rem; text-decoration: none;">9943320638</a>
+                    <a href="tel:9943320638" style="color: var(--primary); font-size: 1.6rem; text-decoration: none; font-weight: 800;">9943320638</a>
                 </p>
-                <p><strong>💻 வகுப்பு முறை:</strong> ஆன்லைன் வகுப்புகள் மட்டும் (Online Classes Only)</p>
+                <p style="margin-top: 1.5rem;"><strong>💻 வகுப்பு முறை:</strong> ஆன்லைன் வகுப்புகள் மட்டும்</p>
                 <p><strong>🌐 பயிற்று மொழி:</strong> தமிழ் மீடியம் மட்டும்</p>
-                <p><strong>📍 முதன்மை மையம்:</strong> பெரம்பலூர் (Perambalur), தமிழ்நாடு</p>
+                <p><strong>📍 மையம்:</strong> பெரம்பலூர், தமிழ்நாடு</p>
             </div>
             <div>
                 <div class="success-message" id="successAlert"></div>
@@ -171,7 +424,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 RKS ஆன்லைன் டியூஷன் சென்டர் - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        <p>&copy; 2026 RKS TUITION CENTER - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </footer>
 
     <script>
@@ -184,8 +437,7 @@
             const phone = document.getElementById('parentPhone').value.trim();
             const successAlert = document.getElementById('successAlert');
 
-            // வாட்ஸ்அப் மெசேஜ் வடிவம்
-            const message = "RKS ஆன்லைன் டியூஷன் - புதிய சேர்க்கை பதிவு:\n\n" +
+            const message = "RKS TUITION CENTER - புதிய சேர்க்கை பதிவு:\n\n" +
                             "📝 மாணவர் பெயர்: " + student + "\n" +
                             "👨‍👩‍👦 பெற்றோர் பெயர்: " + parent + "\n" +
                             "📚 வகுப்பு: " + grade + "\n" +
@@ -193,22 +445,18 @@
                             "📍 இடம்: பெரம்பலூர் ஆன்லைன் வகுப்பு";
 
             const encodedMessage = encodeURIComponent(message);
-            
-            // விடுபட்ட போன் எண் மற்றும் டெக்ஸ்ட் பராமீட்டர் தற்போது முழுமையாகச் சேர்க்கப்பட்டுள்ளது
             const whatsappUrl = "https://wa.me" + encodedMessage;
 
-            // திரையில் வெற்றிக் செய்தி காட்டுதல்
             successAlert.innerText = "வெற்றி! " + student + " ஆன்லைன் வகுப்பு பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
             successAlert.style.display = "block";
 
-            // படிவத்தை பழைய நிலைக்கு மாற்றுதல் (Reset Form)
             document.getElementById('enrollmentForm').reset();
             successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // வாட்ஸ்அப் செயலியை உடனடியாக புதிய விண்டோவில் திறத்தல்
-            window.open(whatsappUrl, '_blank');
+            setTimeout(function() {
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
         }
     </script>
 </body>
 </html>
-
