@@ -117,7 +117,7 @@
             </div>
         </div>
     </section>
-        <section id="register">
+           <section id="register">
         <h2 class="section-title">உடனடி ஆன்லைன் சேர்க்கை பதிவு</h2>
         <div class="contact-container">
             <div class="contact-info">
@@ -138,7 +138,6 @@
                         <label for="studentName">மாணவரின் முழு பெயர் *</label>
                         <input type="text" id="studentName" required placeholder="எ.கா. அருண் குமார்">
                     </div>
-                    <!-- புதிய சேர்க்கை: பெற்றோர் பெயர் -->
                     <div class="form-group">
                         <label for="parentName">பெற்றோர் / பாதுகாவலர் பெயர் *</label>
                         <input type="text" id="parentName" required placeholder="எ.கா. இராமன்">
@@ -179,17 +178,15 @@
         function handleRegistration(event) {
             event.preventDefault();
 
-            // படிவ உள்ளீடுகளைப் பெறுதல்
             const student = document.getElementById('studentName').value.trim();
             const parent = document.getElementById('parentName').value.trim();
             const grade = document.getElementById('studentGrade').value;
             const phone = document.getElementById('parentPhone').value.trim();
             const successAlert = document.getElementById('successAlert');
 
-            // உங்களுடைய வாட்ஸ்அப் எண் (+91 உடன் சரியாக இணைக்கப்பட்டுள்ளது)
+            // உங்களின் வாட்ஸ்அப் எண்
             const myWhatsappNumber = "919943320638";
 
-            // வாட்ஸ்அப் மெசேஜ் கட்டமைப்பு (பெற்றோர் பெயருடன்)
             const message = "RKS ஆன்லைன் டியூஷன் - புதிய சேர்க்கை பதிவு:\n\n" +
                             "📝 மாணவர் பெயர்: " + student + "\n" +
                             "👨‍👩‍👦 பெற்றோர் பெயர்: " + parent + "\n" +
@@ -197,26 +194,19 @@
                             "📞 பெற்றோர் போன் எண்: " + phone + "\n" +
                             "📍 இடம்: பெரம்பலூர் ஆன்லைன் வகுப்பு";
 
-            // வலை முகவரிக்கான செய்தி வடிவமைப்பு மாற்றம்
             const encodedMessage = encodeURIComponent(message);
             
-            // புதிய மற்றும் துல்லியமான wa.me லிங்க் முறை
+            // சரிசெய்யப்பட்ட உலகளாவிய வாட்ஸ்அப் லிங்க் (https://wa.me வடிவமைப்பு)
             const whatsappUrl = "https://wa.me" + myWhatsappNumber + "?text=" + encodedMessage;
 
-            // UI-ல் மெசேஜ் காட்டுதல் (Success Alert)
-            successAlert.innerText = "வெற்றி! " + student + " ஆன்லைன் வகுப்பு பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம், அங்கு Send பட்டனை அழுத்தவும்...";
+            successAlert.innerText = "வெற்றி! பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
             successAlert.style.display = "block";
 
-            // படிவத்தை பழைய நிலைக்கு மாற்றுதல் (Reset Form)
             document.getElementById('enrollmentForm').reset();
-
-            // திரையை படிவம் இருக்கும் இடத்திற்கு நகர்த்துதல்
             successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // 1.2 விநாடிகளில் வாட்ஸ்அப் செயலியைத் திறக்கும் நேர மேலாண்மை
-            setTimeout(function() {
-                window.open(whatsappUrl, '_blank');
-            }, 1200);
+            // வாட்ஸ்அப் சாளரத்தை உடனடியாகத் திறக்கும் வசதி
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
