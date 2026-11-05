@@ -370,7 +370,7 @@
             </div>
         </div>
     </section>
-      <section id="register">
+         <section id="register">
         <h2 class="section-title">உடனடி ஆன்லைன் சேர்க்கை பதிவு</h2>
         <div class="contact-container">
             <div class="contact-info">
@@ -446,8 +446,8 @@
 
             const encodedMessage = encodeURIComponent(message);
             
-            // மாபெரும் திருத்தம்: உங்களுடைய போன் நம்பரும், டெக்ஸ்ட் பராமீட்டரும் இணையும்படி மாற்றப்பட்டுள்ளது!
-            const whatsappUrl = "https://wa.me" + encodedMessage;
+            // உங்களின் போன் எண் மற்றும் செய்தி முழுமையாக, நிரந்தரமாக இங்கே பூட்டப்பட்டுள்ளது!
+            const whatsappUrl = `https://wa.me{encodedMessage}`;
 
             successAlert.innerText = "வெற்றி! " + student + " ஆன்லைன் வகுப்பு பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
             successAlert.style.display = "block";
@@ -462,3 +462,4 @@
     </script>
 </body>
 </html>
+
