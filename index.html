@@ -369,7 +369,7 @@
             </div>
         </div>
     </section>
-    <section id="register">
+       <section id="register">
         <h2 class="section-title">உடனடி ஆன்லைன் சேர்க்கை பதிவு</h2>
         <div class="contact-container">
             <div class="contact-info">
@@ -385,7 +385,8 @@
             </div>
             <div>
                 <div class="success-message" id="successAlert"></div>
-                <form id="enrollmentForm" onsubmit="handleRegistration(event)">
+                <!-- வாட்ஸ்அப் எண் நேரடியாக படிவத்தில் இணைக்கப்பட்டுள்ளது -->
+                <form id="enrollmentForm" action="https://wa.me" method="GET" target="_blank" onsubmit="handleRegistration(event)">
                     <div class="form-group">
                         <label for="studentName">மாணவரின் முழு பெயர் *</label>
                         <input type="text" id="studentName" required placeholder="எ.கா. அருண் குமார்">
@@ -414,6 +415,9 @@
                         <label for="parentPhone">பெற்றோர் / பாதுகாவலர் போன் எண் *</label>
                         <input type="tel" id="parentPhone" required pattern="[0-9]{10}" placeholder="எ.கா. 9943320638">
                     </div>
+                    <!-- மறைமுக செய்தி பராமீட்டர் (Hidden Input for text) -->
+                    <input type="hidden" id="whatsappMessage" name="text" value="">
+                    
                     <button type="submit" class="submit-btn">
                         💬 வாட்ஸ்அப் மூலம் பதிவு செய்
                     </button>
@@ -423,40 +427,38 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 RKS TUITION CENTER - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        <p>&copy; 2026 RKS ஆன்லைன் டியூஷன் சென்டர் - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </footer>
 
     <script>
         function handleRegistration(event) {
-            event.preventDefault();
-
+            // இந்த முறை ஃபார்ம் சப்மிட்டை தடுக்காமல், தரவுகளை மட்டும் மாற்றி வாட்ஸ்அப்பிற்கு அனுப்புகிறோம்
             const student = document.getElementById('studentName').value.trim();
             const parent = document.getElementById('parentName').value.trim();
             const grade = document.getElementById('studentGrade').value;
             const phone = document.getElementById('parentPhone').value.trim();
             const successAlert = document.getElementById('successAlert');
 
+            // முழுமையான செய்தி வடிவம்
             const message = "RKS ஆன்லைன் டியூஷன் - புதிய சேர்க்கை பதிவு:\n\n" +
                             "📝 மாணவர் பெயர்: " + student + "\n" +
                             "👨‍👩‍👦 பெற்றோர் பெயர்: " + parent + "\n" +
                             "📚 வகுப்பு: " + grade + "\n" +
                             "📞 பெற்றோர் போன் எண்: " + phone + "\n" +
-                            "📍 இடம்: பெரம்பலூர் ";
+                            "📍 இடம்: பெரம்பலூர் ஆன்லைன் வகுப்பு";
 
-            const encodedMessage = encodeURIComponent(message);
-            
-            // பிழையற்ற உலகளாவிய வாட்ஸ்அப் அதிகாரப்பூர்வ நேரடி API லிங்க்
-            const whatsappUrl = "https://whatsapp.com" + encodedMessage;
+            // மறைமுக உள்ளீட்டில் செய்தியை சேமித்தல்
+            document.getElementById('whatsappMessage').value = message;
 
+            // திரையில் வெற்றிகரமான அறிவிப்பு
             successAlert.innerText = "வெற்றி! " + student + " ஆன்லைன் வகுப்பு பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
             successAlert.style.display = "block";
-
-            document.getElementById('enrollmentForm').reset();
             successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+            // படிவத்தை 2 வினாடிகளுக்கு பிறகு ரீசெட் செய்ய டைமர்
             setTimeout(function() {
-                window.open(whatsappUrl, '_blank');
-            }, 1000);
+                document.getElementById('enrollmentForm').reset();
+            }, 2000);
         }
     </script>
 </body>
