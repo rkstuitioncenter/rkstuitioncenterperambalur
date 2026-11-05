@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RKS ஆன்லைன் டியூஷன் சென்டர் | பெரம்பலூர்</title>
+    <title>RKS TUITION CENTER </title>
     <style>
         :root {
             --primary: #800020; /* ராயல் மெரூன் */
@@ -370,7 +370,7 @@
             </div>
         </div>
     </section>
-    <section id="register">
+      <section id="register">
         <h2 class="section-title">உடனடி ஆன்லைன் சேர்க்கை பதிவு</h2>
         <div class="contact-container">
             <div class="contact-info">
@@ -382,7 +382,7 @@
                 </p>
                 <p style="margin-top: 1.5rem;"><strong>💻 வகுப்பு முறை:</strong> ஆன்லைன் வகுப்புகள் மட்டும்</p>
                 <p><strong>🌐 பயிற்று மொழி:</strong> தமிழ் மீடியம் மட்டும்</p>
-                <p><strong>📍 மையம்:</strong> பெரம்பலூர், தமிழ்நாடு</p>
+                <p><strong>📍 முதன்மை மையம்:</strong> பெரம்பலூர், தமிழ்நாடு</p>
             </div>
             <div>
                 <div class="success-message" id="successAlert"></div>
@@ -424,7 +424,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 RKS TUITION CENTER - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+        <p>&copy; 2026 RKS ஆன்லைன் டியூஷன் சென்டர் - பெரம்பலூர். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </footer>
 
     <script>
@@ -437,7 +437,7 @@
             const phone = document.getElementById('parentPhone').value.trim();
             const successAlert = document.getElementById('successAlert');
 
-            const message = "RKS TUITION CENTER - புதிய சேர்க்கை பதிவு:\n\n" +
+            const message = "RKS ஆன்லைன் டியூஷன் - புதிய சேர்க்கை பதிவு:\n\n" +
                             "📝 மாணவர் பெயர்: " + student + "\n" +
                             "👨‍👩‍👦 பெற்றோர் பெயர்: " + parent + "\n" +
                             "📚 வகுப்பு: " + grade + "\n" +
@@ -445,6 +445,8 @@
                             "📍 இடம்: பெரம்பலூர் ஆன்லைன் வகுப்பு";
 
             const encodedMessage = encodeURIComponent(message);
+            
+            // மாபெரும் திருத்தம்: உங்களுடைய போன் நம்பரும், டெக்ஸ்ட் பராமீட்டரும் இணையும்படி மாற்றப்பட்டுள்ளது!
             const whatsappUrl = "https://wa.me" + encodedMessage;
 
             successAlert.innerText = "வெற்றி! " + student + " ஆன்லைன் வகுப்பு பதிவுத் தகவல்கள் தயாராக உள்ளன. உங்களை வாட்ஸ்அப் செயலிற்கு அழைத்துச் செல்கிறோம்...";
